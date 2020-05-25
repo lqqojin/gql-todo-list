@@ -1,12 +1,11 @@
-const lqqojin = {
-	name: 'JJ',
-	age: 20,
-	gender: 'male'
-}
+const { people, getById } = require("./db");
 
 const resolvers = {
 	Query: {
-		person: () => lqqojin
+		people: () => people,
+		person: (a, pp) => {
+			return getById(pp.id);
+		}
 	}
 }
 
