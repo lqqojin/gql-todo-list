@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './img/download.svg'
+import logo from '../assets/img/download.svg'
 
 function Subject () {
     return(
