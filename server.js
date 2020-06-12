@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
 import graphqlHTTP from 'express-graphql';
-import schema from './graphql/schema';
+import schema from './src/graphql/schema';
 import cors from 'cors';
 
 
@@ -12,7 +12,7 @@ dotenv.config({ silent: true, path: path.resolve(__dirname, '.env') });
 
 const port = process.env.PORT;
 import connMongo from './connMongo';
-import Todo from "./models/todo";
+import Todo from "./src/models/todo";
 
 const app = express();
 app.use(cors());

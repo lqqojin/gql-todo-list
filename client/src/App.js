@@ -1,15 +1,16 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { ApolloProvider } from "@apollo/react-hooks";
 import client from "./graphql/apolloClient";
 import './App.css';
-import TodoList from './component/TodoList'
+import Subject from "./component/Subject";
+import TodoListContainer from './container/TodoListContainer'
 
 function App() {
     return (
         <ApolloProvider client={client}>
-            <div>
-                <h1>My first Apollo App</h1>
-                <TodoList client={client}/>
+            <div className="App container">
+                <Subject />
+                <TodoListContainer/>
             </div>
         </ApolloProvider>
     );

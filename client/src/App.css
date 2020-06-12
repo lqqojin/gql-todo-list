@@ -1,9 +1,20 @@
 .App {
   text-align: center;
+  /*border: solid greenyellow 1px;*/
+}
+
+.container {
+  border: solid darkseagreen 1px;
+  /*width: 100%;*/
+  background: #fff;
+  margin-top: 5%;
+  padding: 10px;
+  height: 50%;
 }
 
 .App-logo {
-  height: 40vmin;
+  /*height: 5vmin;*/
+  /*width: 5vmin;*/
   pointer-events: none;
 }
 
@@ -13,21 +24,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +31,50 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.doList {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+.doList li {
+  list-style: none;
+  border-bottom: 2px solid #d9d9d9;
+  width: 100%;
+  text-align: center
+}
+.doList li::after {
+  clear: both;
+  content: '.';
+  display: block;
+  height: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+.doList em {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  float: left;
+  margin-top: 5px;
+  border: solid 1px #d9d9d9
+}
+.doList li p {
+  float: left;
+  width: 95%;
+  padding-left: 2%;
+  margin: 0;
+}
+.doList li del {
+  float: left;
+  width: 95%;
+  padding-left: 2%;
+  margin: 0;
+  color: red
+}
+.doList li span {
+  float: left;
+  display: inline-block;
 }

@@ -1,25 +1,36 @@
 import React from 'react';
-import { Query } from 'react-apollo';
-import { Q_TODO_LIST } from '../graphql/todoQuery';
+import { Q_TODO_LIST } from '../graphql/todoQuery'
 
-function TodoList() {
-    return (
-        <Query query={Q_TODO_LIST}>
-            {({ loading, error, data }) => {
-                if (loading) return <p>Loading...</p>
-                if (error) return <p>Error!</p>
-                console.log('%cDATA','color:orange');
-                console.log();
+function TodoList (props) {
+	let { id, desc, status, onDelete, onUpdate }  = props;
+	return(
+		<li>
+			{
+				status === 'complete' ?
+				<del onClick={() => {
+					status = (status === 'active' ? 'complete' : 'active');
+					onUpdate(id, { status });
+				}}>
+					{desc}
+				</del>
+				:
+				<p onClick={() => {
+					status = (status === 'active' ? 'complete' : 'active');
+					onUpdate(id, { status });
+				}}>
+					{desc}
+				</p>
+			}
+			<span onClick={ () => {
+					console.log('delete 클릭');
+					onDelete(id);
+				}
+			}>
+				&times;
+			</span>
 
-                return <ul>{
-                    data.todoList.map(item => {
-                        console.log(item);
-                        return <li key={item.id}>{item.id} {item.desc} {item.status}</li>
-                    })
-                }</ul>
-            }}
-        </Query>
-    )
+		</li>
+	)
 }
 
 export default TodoList;
