@@ -1,5 +1,5 @@
-import gql from 'graphql-tag';
-// import { gql } from 'apollo-boost';
+// import gql from 'graphql-tag';
+import { gql } from 'apollo-boost';
 
 export const Q_TODO_LIST = gql`
     {
@@ -7,6 +7,7 @@ export const Q_TODO_LIST = gql`
             id
             desc
             status
+            isLiked @client
         }
     }
 `;
@@ -38,5 +39,11 @@ export const UPDATE_TODO = gql`
             desc
             status
         }
+    }
+`
+// @client 백엔드로 보내지 않음
+export const LIKE_TODO = gql`
+    mutation toggleLikeMovie($id: Int!, $isLiked: Boolean!) {
+        toggleLikeMovie(id: $id, isLiked: $isLiked) @client
     }
 `
