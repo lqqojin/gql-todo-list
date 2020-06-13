@@ -43,7 +43,7 @@ export const UPDATE_TODO = gql`
 `
 // @client 백엔드로 보내지 않음
 export const LIKE_TODO = gql`
-    mutation toggleLikeMovie($id: Int!, $isLiked: Boolean!) {
-        toggleLikeMovie(id: $id, isLiked: $isLiked) @client
+    mutation toggleLikeTodo($id: Int!, $isLiked: Boolean!) {
+        toggleLikeTodo(id: $id, isLiked: $isLiked) @client
     }
 `
